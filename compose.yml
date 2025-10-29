@@ -7,7 +7,7 @@ services:
     volumes:
       - mongodb_data:/data/db
     networks:
-      - app-network
+      - noteapi-net
 
   nodeapi-service:
     image: node:24-alpine
@@ -21,10 +21,20 @@ services:
       - mongodb-service
     command: sh -c "npm install && node index.js"
     networks:
-      - app-network
+      - noteapi-net
+
+  mysql-service:
+    image: mariadb:lts
+    container_name: mysql-database
+    environment:
+      MYSQL_ROOT_PASSWORD: mon_super_pass
+    volumes:
+      - ./mariadb-data:/var/lib/mysql
+    networks:
+      - noteapi-net
 
 networks:
-  app-network:
+  noteapi-net:
 
 volumes:
   mongodb_data:

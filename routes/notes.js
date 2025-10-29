@@ -11,24 +11,24 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.post('/', async (req,res) => {
-    try {
-        const newNote = new Note(req.body);
-        const savedNote = await newNote.save();
-        res.status(201).json(savedNote);
-    } catch (err) {
-        res.status(400).json({ error: err.message});
-    }
-})
-
-router.get("/:id", async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const note = await Note.findById(req.params.id);
     // console.log(note);
-    if (!note) return res.status(404).json({ error: 'Note non trouvé !'});
+    if (!note) return res.status(404).json({ error: "Note non trouvé !" });
     res.json(note);
   } catch (err) {
     res.status(500).json({ error: err.message });
+  }
+});
+
+router.post("/", async (req, res) => {
+  try {
+    const newNote = new Note(req.body);
+    const savedNote = await newNote.save();
+    res.status(201).json(savedNote);
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
 });
 

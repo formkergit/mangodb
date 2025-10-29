@@ -11,7 +11,7 @@ docker run -d --name mongodb -p 27017:27017 -v mongodb_data:/data/db --network n
 
 curl -X POST http://localhost:8002/api/notes \
   -H "Content-Type: application/json" \
-  -d '{"title": "Ma Premiere Note", "content": "Ce ci est ma premiere note"}'
+  -d '{"titre": "Ma Premiere Note", "contenu": "Ce ci est ma premiere note"}'
 
 ```
 

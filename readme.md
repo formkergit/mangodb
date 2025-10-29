@@ -9,9 +9,7 @@ npm i express mongoose
 
 docker run -d --name mongodb -p 27017:27017 -v mongodb_data:/data/db --network noteapi-net mongo:latest
 
-curl -X POST http://localhost:8002/api/notes \
-  -H "Content-Type: application/json" \
-  -d '{"titre": "Ma Premiere Note", "contenu": "Ce ci est ma premiere note"}'
+curl -X POST http://localhost:8002/api/notes  -H "Content-Type: application/json"  -d '{"titre": "Ma Premiere Note", "contenu": "Ce ci est ma premiere note"}'
 
 ```
 

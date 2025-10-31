@@ -20,3 +20,5 @@ curl -X POST http://localhost:8002/api/notes/generer-notes  -H "Content-Type: ap
 [https://www.hostinger.com/fr/tutoriels/docker-compose-cest-quoi](https://www.hostinger.com/fr/tutoriels/docker-compose-cest-quoi)
 
 [https://openclassrooms.com/fr/courses/8431896-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/8482944-manipulez-docker](https://openclassrooms.com/fr/courses/8431896-optimisez-votre-deploiement-en-creant-des-conteneurs-avec-docker/8482944-manipulez-docker)
+
+[https://v10.fakerjs.dev/guide/](https://v10.fakerjs.dev/guide/)

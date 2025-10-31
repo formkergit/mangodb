@@ -1,9 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const Note = require("../models/note");
-const remplirBasedeDonnee = require("../models/faker");
-
-console.log("remplirBasedeDonnee => " + remplirBasedeDonnee);
+const {Note , remplirBasedeDonnee } = require("../models/fakerModels");
 
 router.get('/', async (req, res) => {
   try {
@@ -41,7 +38,7 @@ router.post('/generer-notes', async (req,res) => {
     await remplirBasedeDonnee(nombre);
     res.json({ message: 'Notes généré avec succés.'});
   } catch (err) {
-      res.status(500).json({ error: err.message });
+      res.status(500).json({ "route generer notes": err.message });
   }
 });
 

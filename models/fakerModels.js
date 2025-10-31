@@ -14,10 +14,11 @@ const createNote = () => ({
 const generateNotes = (nombre) => Array.from({ length: nombre }, createNote);
 
 async function remplirBasedeDonnee(nombre = 10) {
-  const NoteFaker = mongoose.model("NoteFaker", noteSchema);
+  const Note = mongoose.model("Note", noteSchema);
   try {
+    await Note.deleteMany({});
     const notes = generateNotes(nombre);
-    await NoteFaker.insertMany(notes);
+    await Note.insertMany(notes);
     return true;
   } catch (error) {
     console.error("Erreur pour remplir la base de donée : ", error);
@@ -26,6 +27,6 @@ async function remplirBasedeDonnee(nombre = 10) {
 }
 
 module.exports = {
-  Note: mongoose.model('NoteFaker', noteSchema),
+  Note: mongoose.model('Note', noteSchema),
   remplirBasedeDonnee
 };

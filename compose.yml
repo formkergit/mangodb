@@ -24,7 +24,7 @@ services:
       - mongodb-service
     networks:
       - noteapi-net
-    command: sh -c "npm install && node index.js"
+    command: sh -c "npm install  express mongoose @faker-js/faker  && node index.js"
 
 networks:
   noteapi-net:

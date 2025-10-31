@@ -1,6 +1,9 @@
 const express = require("express");
 const router = express.Router();
 const Note = require("../models/note");
+const remplirBasedeDonnee = require("../models/faker");
+
+console.log("remplirBasedeDonnee => " + remplirBasedeDonnee);
 
 router.get('/', async (req, res) => {
   try {
@@ -28,7 +31,17 @@ router.post('/', async (req, res) => {
     const savedNote = await newNote.save();
     res.status(201).json(savedNote);
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(500).json({ error: err.message });
+  }
+});
+
+router.post('/generer-notes', async (req,res) => {
+  try {
+    const { nombre } = req.body;
+    await remplirBasedeDonnee(nombre);
+    res.json({ message: 'Notes généré avec succés.'});
+  } catch (err) {
+      res.status(500).json({ error: err.message });
   }
 });
 

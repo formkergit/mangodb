@@ -13,9 +13,10 @@ services:
 
   nodeapi-service:
     image: node:alpine
-    container_name: noteapi
+    container_name: noteapi-server
     volumes:
-      - ./:/app
+      - ./:/app:delegated
+      - ./node_modules:/app/node_modules
     working_dir: /app
     ports:
       - "8002:8002"
